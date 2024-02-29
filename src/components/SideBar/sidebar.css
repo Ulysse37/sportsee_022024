@@ -34,9 +34,9 @@
 .sidebar-container p {
   display: flex;
   align-items: center;
+  height: 117px;
   margin: 0;
   padding-left: 80px;
-  height: 117px;
   white-space: nowrap;
   background-color: black;
   color: white;
