@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  background-color: black;
+  padding: 15px;
+}
+
+.navbar ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin: 0 60px;
+}
+
+.navbar li {
+  color: white;
+  font-weight: 500;
+}
+
+.navbar-logo {
+  margin-right: 40px;
+}
