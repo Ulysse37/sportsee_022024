@@ -8,14 +8,17 @@ import { USER_PERFORMANCE } from './assets/data.js'; */
 
 import SideBar from "./components/SideBar/SideBar";
 import Banner from "./components/Banner/Banner";
-/* import KeyInfo from "./components/KeyInfo/KeyInfo"; */
+import KeyInfoCard from "./components/KeyInfo/KeyInfoCard.jsx";
 
 function App() {
   
   return (
     <main>
       <SideBar />
-      <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitation ! Vous avez explosé vos objectifs hier 👏" />
+      <div className='central-container'>
+        <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitation ! Vous avez explosé vos objectifs hier 👏" />
+        <KeyInfoCard item={USER_MAIN_DATA[0]} />
+      </div>
     </main>
   );
 }
