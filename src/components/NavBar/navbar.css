@@ -2,14 +2,15 @@
   display: flex;
   background-color: black;
   padding: 15px;
+  box-shadow: 0px 4px 4px 0px #00000040;
 }
 
 .navbar ul {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  width: 100%;
   margin: 0 60px;
 }
 
