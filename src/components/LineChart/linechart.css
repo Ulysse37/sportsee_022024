@@ -1,0 +1,42 @@
+.graph-container {
+  position: relative;
+}
+
+.linechart-responsive-container {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: rgba(230, 0, 0, 1);
+}
+
+/* Position absolute sur la div contenant jours de la semaine afin de pouvoir l'afficher sans l'axe X*/
+.day-labels {
+  position: absolute;
+  bottom: -25px;
+  width: 30%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-top: 11px; /* extension du background pour rejoindre le graph */
+  background-color: rgba(230, 0, 0, 1);
+  text-align: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.day-label {
+  display: inline-block;
+  width: calc(100% / 7); /* utilisation de calc pour répartir les jours de manière égale */
+}
+
+/* Css du tooltip */
+.custom-tooltip-container {
+  height: 25px;
+  width: 39px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-size: 8px;
+  font-weight: 500;
+}
