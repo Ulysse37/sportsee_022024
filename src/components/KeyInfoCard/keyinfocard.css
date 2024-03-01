@@ -1,0 +1,18 @@
+.keyinfo-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 220px;
+  right: 0;
+  /* width: 100%; */
+  margin-top: 60px;
+  margin-right: 10px;
+}
+
+@media screen and (min-width: 1440px) {
+  .keyinfo-container {
+    display: flex;
+    flex-direction: column;
+    right: 5%;
+  }
+}

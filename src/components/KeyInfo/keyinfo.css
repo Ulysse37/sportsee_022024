@@ -1,16 +1,9 @@
-.keyinfo-container {
-  display: flex;
-  /* justify-content: space-around; */
-  width: 100%;
-  margin-top: 60px;
-}
-
 .info-card {
   display: flex;
   align-items: center;
-  width: 180px;
+  width: 200px;
   height: 90px;
-  margin-right: 25px;
+  margin-bottom: 20px;
   border-radius: 6px;
   background-color: #FBFBFB;
 }
@@ -52,11 +45,6 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .keyinfo-container {
-    display: flex;
-    flex-direction: column;
-  }
-
   .info-card {
     width: 258px;
     height: 124px;
