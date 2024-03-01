@@ -7,18 +7,18 @@ function NavBar() {
     <nav className='navbar'>
       <img className='navbar-logo' src={logo} alt='logo SportSee' />
       <ul>
-        <a href='/'>
-          <li>Accueil</li>
-        </a>
-        <a href='/'>
-          <li>Profil</li>
-        </a>
-        <a href='/'>
-          <li>Réglage</li>
-        </a>
-        <a href='/'>
-          <li>Communauté</li>
-        </a>
+        <li>
+          <a href='/'>Accueil</a>
+        </li>
+        <li>
+          <a href='/'>Profil</a>
+        </li>
+        <li>
+          <a href='/'>Réglage</a>
+        </li>
+        <li>
+          <a href='/'>Communauté</a>
+        </li>
       </ul>
     </nav>
   )

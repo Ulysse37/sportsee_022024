@@ -15,10 +15,13 @@
 }
 
 .navbar li {
-  color: white;
   font-weight: 500;
 }
 
 .navbar-logo {
   margin-right: 40px;
+}
+
+.navbar a {
+  color: white;
 }
