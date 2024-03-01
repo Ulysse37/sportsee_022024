@@ -7,33 +7,31 @@ import DumbBellIcon from "../../assets/dumbbell-icon.svg";
 function SideBar() {
 
   return (
-    <aside className='sidebar-container'>
-      <nav className='sidebar'>
-        <ul>
+    <nav className='sidebar sidebar-container'>
+      <ul>
+        <li>
           <a href='/'>
-            <li>
-              <img src={YogaIcon} alt='Icône de yoga'/>
-            </li>
+            <img src={YogaIcon} alt='Icône de yoga'/>
           </a>
+        </li>
+        <li>
           <a href='/'>
-            <li>
-              <img src={SwimIcon} alt='Icône de natation'/>
-            </li>
+            <img src={SwimIcon} alt='Icône de natation'/>
           </a>
+        </li>
+        <li>
           <a href='/'>
-            <li>
-              <img src={CyclingIcon} alt='Icône de cyclisme'/>
-            </li>
+            <img src={CyclingIcon} alt='Icône de cyclisme'/>
           </a>
+        </li>
+        <li>
           <a href='/'>
-            <li>
-              <img src={DumbBellIcon} alt="Icône d'haltère"/>
-            </li>
+            <img src={DumbBellIcon} alt="Icône d'haltère"/>
           </a>
-        </ul>
-      </nav>
+        </li>
+      </ul>
       <p>Copyright, SportSee 2020</p>
-    </aside>
+    </nav>
   )
 }
 
