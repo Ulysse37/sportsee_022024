@@ -10,9 +10,10 @@
 
 /* Position absolute sur la div contenant jours de la semaine afin de pouvoir l'afficher sans l'axe X*/
 .day-labels {
-  position: absolute;
-  bottom: -25px;
-  width: 30%;
+  /* position: absolute;
+  bottom: -25px; */
+  width: 258px;
+  height: 30px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   padding-top: 11px; /* extension du background pour rejoindre le graph */
@@ -26,6 +27,7 @@
 .day-label {
   display: inline-block;
   width: calc(100% / 7); /* utilisation de calc pour répartir les jours de manière égale */
+  opacity: 50%;
 }
 
 /* Css du tooltip */
@@ -39,4 +41,11 @@
   color: black;
   font-size: 8px;
   font-weight: 500;
+}
+
+.chart-text {
+  fill: white;
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 50%;
 }

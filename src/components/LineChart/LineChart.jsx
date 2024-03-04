@@ -3,19 +3,14 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 import { USER_AVERAGE_SESSIONS } from '../../assets/data';
 
-function ShortDayNameFormat(day) {
-  const days = ["L", "M", "M", "K", "V", "S", "D"];
+function ShortDayNameFormat(day) { // formate les jours de la semaines donnés en n° en lettre
+  const days = ["L", "M", "M", "J", "V", "S", "D"];
+  console.log(days);
   return days[day - 1];
 }
 
-function LineChartComponent() {
-  const data = USER_AVERAGE_SESSIONS[0].sessions.map((session) => ({
-    day: ShortDayNameFormat(session.day),
-    sessionLength: session.sessionLength,
-  }));
-
-function CustomTooltip({ active, payload }) { //payload contient les valeurs pour le point où le curseur est positionné
-  if (active) {
+function CustomTooltip({ active, payload }) { //custom tooltip pour le styliser plus facilement 
+  if (active) { //payload contient les valeurs pour le point où le curseur est positionné
     return (
       <div className="custom-tooltip-container">
         <p className="custom-tooltip-text">{`${payload[0].value} min`}</p>
@@ -26,14 +21,24 @@ function CustomTooltip({ active, payload }) { //payload contient les valeurs pou
   return null;
 }
 
+function LineChartComponent() {
+  const data = USER_AVERAGE_SESSIONS[0].sessions.map((session) => ({
+    day: ShortDayNameFormat(session.day),
+    sessionLength: session.sessionLength,
+  }));
+
   return (
     <div className="graph-container">
-      <ResponsiveContainer className="linechart-responsive-container" width="30%" height={263}>
+      <ResponsiveContainer className="linechart-responsive-container" width={258} height={263}>
         <LineChart data={data}>
           <XAxis dataKey="day" hide={true} />
           <YAxis hide={true} />
-          <Line type="monotone" dataKey="sessionLength" stroke="#ffffff" dot={false} />
+          <Line type="monotone" dataKey="sessionLength" stroke="#ffffff" strokeWidth={2} dot={false} />
           <Tooltip content={<CustomTooltip />} />
+          <text x={90} y={30} textAnchor="middle" dominantBaseline="middle" className="chart-text">
+            Durée moyenne des
+            <tspan x={54} dy={20}>sessions</tspan>
+          </text>
         </LineChart>
       </ResponsiveContainer>
       <div className="day-labels"> 
