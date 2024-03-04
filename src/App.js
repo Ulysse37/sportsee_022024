@@ -10,6 +10,7 @@ import Banner from "./components/Banner/Banner";
 import KeyInfoCard from "./components/KeyInfoCard/KeyInfoCard.jsx";
 import LineChartComponent from "./components/LineChart/LineChart";
 import RadarChartComponent from './components/RadarChart/RadarChart';
+import PieChartComponent from './components/PieChart/PieChart';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <div className='bottom-graph-container'>
           <LineChartComponent />
           <RadarChartComponent />
+          <PieChartComponent data={USER_MAIN_DATA[0]} />
         </div>
       </section>
       <KeyInfoCard item={USER_MAIN_DATA[0]} />
