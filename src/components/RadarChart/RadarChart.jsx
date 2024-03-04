@@ -20,7 +20,7 @@ function RadarChartComponent() {
 
   return (
     <ResponsiveContainer className="radarchart-responsive-container" width={258} height={274}>
-      <RadarChart /* style={{ width: "100%", height: "85%" }} */ cx="50%" cy="50%" outerRadius="65%" data={data}>
+      <RadarChart cx="50%" cy="50%" outerRadius="59%" data={data}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" tick={{ fontSize: 12, fontWeight: 500, fill: 'white' }} />
         <Radar name="Performance" dataKey="value" fill="rgba(255, 1, 1, 0.7)" fillOpacity={0.9} />
