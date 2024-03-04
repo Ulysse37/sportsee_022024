@@ -27,8 +27,8 @@ function LineChartComponent() {
   }));
 
   return (
-    <div className="graph-container">
-      <ResponsiveContainer className="linechart-responsive-container" width={258} height={263}>
+    <div className="linechart-graph-container">
+      <ResponsiveContainer className="linechart-responsive-container" width={258} height={233}>
         <LineChart data={data}>
           <XAxis dataKey="day" hide={true} />
           <YAxis hide={true} />

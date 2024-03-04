@@ -9,6 +9,7 @@ import { USER_PERFORMANCE } from './assets/data.js'; */
 import Banner from "./components/Banner/Banner";
 import KeyInfoCard from "./components/KeyInfoCard/KeyInfoCard.jsx";
 import LineChartComponent from "./components/LineChart/LineChart";
+import RadarChartComponent from './components/RadarChart/RadarChart';
 
 function App() {
   
@@ -16,7 +17,10 @@ function App() {
     <main>
       <section className='central-container'>
         <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
-        <LineChartComponent />
+        <div className='bottom-graph-container'>
+          <LineChartComponent />
+          <RadarChartComponent />
+        </div>
       </section>
       <KeyInfoCard item={USER_MAIN_DATA[0]} />
     </main>
