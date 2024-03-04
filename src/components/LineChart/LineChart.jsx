@@ -5,7 +5,6 @@ import { USER_AVERAGE_SESSIONS } from '../../assets/data';
 
 function ShortDayNameFormat(day) { // formate les jours de la semaines donnés en n° en lettre
   const days = ["L", "M", "M", "J", "V", "S", "D"];
-  console.log(days);
   return days[day - 1];
 }
 
@@ -41,7 +40,7 @@ function LineChartComponent() {
           </text>
         </LineChart>
       </ResponsiveContainer>
-      <div className="day-labels"> 
+      <div className="day-labels"> {/* ajout des jours de la semaine sur l'axe x */}
         {data.map((entry, index) => (
           <span key={`day-label-${index}`} className="day-label">
             {entry.day}

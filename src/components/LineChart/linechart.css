@@ -1,7 +1,3 @@
-.graph-container {
-  position: relative;
-}
-
 .linechart-responsive-container {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -10,13 +6,11 @@
 
 /* Position absolute sur la div contenant jours de la semaine afin de pouvoir l'afficher sans l'axe X*/
 .day-labels {
-  /* position: absolute;
-  bottom: -25px; */
   width: 258px;
   height: 30px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  padding-top: 11px; /* extension du background pour rejoindre le graph */
+  padding-top: 11px;
   background-color: rgba(230, 0, 0, 1);
   text-align: center;
   color: white;
