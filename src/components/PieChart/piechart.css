@@ -1,11 +1,6 @@
 .piechart-responsive-container {
+  position: relative; /* relative pour placer le texte "score" en absolute */
   margin-left: 20px;
   border-radius: 5px;
   background-color: rgba(251, 251, 251, 1);
 }
-
-.piechart-responsive-container .recharts-wrapper {
-  width: 100%; /* Ajustez la largeur pour remplir complètement le conteneur */
-  height: 100%; /* Ajustez la hauteur pour remplir complètement le conteneur */
-}
-
