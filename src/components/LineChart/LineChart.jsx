@@ -34,7 +34,7 @@ function LineChartComponent() {
           <YAxis hide={true} />
           <Line type="monotone" dataKey="sessionLength" stroke="#ffffff" strokeWidth={2} dot={false} />
           <Tooltip content={<CustomTooltip />} />
-          <text x={90} y={30} textAnchor="middle" dominantBaseline="middle" className="chart-text">
+          <text x={90} y={15} textAnchor="middle" dominantBaseline="middle" className="chart-text">
             Durée moyenne des
             <tspan x={54} dy={20}>sessions</tspan>
           </text>
