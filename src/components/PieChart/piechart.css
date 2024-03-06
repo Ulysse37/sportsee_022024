@@ -4,3 +4,12 @@
   border-radius: 5px;
   background-color: rgba(251, 251, 251, 1);
 }
+
+.text-piechart {
+  position: absolute; 
+  left: 35px;
+  top: 35px;
+  font-size: 15; 
+  font-weight: 500;
+  color: rgba(32, 37, 58, 1);
+}

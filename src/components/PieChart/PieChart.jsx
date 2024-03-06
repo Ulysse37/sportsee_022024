@@ -18,9 +18,7 @@ function PieChartComponent({ data }) {
 
   return (
     <ResponsiveContainer className="piechart-responsive-container" width={258} height={274}>
-      <text style={{ position: 'absolute', left: 35, top: 35, fontSize: 15, fontWeight: 500, color: 'rgba(32, 37, 58, 1)' }}>
-        Score
-      </text>
+      <span className='text-piechart'>Score</span>
       <PieChart>
         <Pie data={graphData} dataKey="value" nameKey="name" cx="50%" cy="50%" 
         outerRadius={80} innerRadius={70} startAngle={-280} endAngle={80} cornerRadius={10}>
