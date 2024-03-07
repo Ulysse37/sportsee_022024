@@ -1,4 +1,51 @@
-.barchart-graph-container {
+.barchart-container{
+  height: 320px;
+  width: 835px;
   margin-bottom: 20px;
   background-color: rgba(251, 251, 251, 1);
+  border-radius: 5px;
+}
+
+.barchart-responsive-container {
+  margin-left: 50px;
+}
+
+.barchart-text{
+  display: flex;
+  justify-content:space-between;
+  margin-bottom: 30px;
+  margin-right: 50px;
+  margin-left: 40px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.barchart-text-title {
+  position: relative;
+  top: 20px;
+}
+
+.barchart-text-list { /* style de la légende */
+  display: flex;
+  position: relative;
+  top: 20px;
+  font-size: 14px;
+  color: rgba(116, 121, 140, 1);
+}
+
+
+.barchart-text-list li::before {
+  margin-right: 10px; /* espace entre puce et texte */
+  content: '•'; /* utiliser pour la puce avant la légende */
+  vertical-align: middle;
+  font-size: 2em;
+}
+
+.barchart-text-poids::before {
+  color: black; /* change la couleur de la puce */
+}
+
+.barchart-text-calories::before  {
+  color: red;/* change la couleur de la puce */
+  margin-left: 30px;
 }
