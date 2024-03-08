@@ -1,11 +1,8 @@
 main {
   display: flex;
+  flex-direction: column;
   margin-left: 117px;
-}
-
-.central-container {
   width: 100%;
-  /* margin-left: 20px; */
 }
 
 .bottom-graph-container {
@@ -13,7 +10,7 @@ main {
 }
 
 @media screen and (min-width: 1440px) {
-  .central-container {
-    margin-left: 100px;
+  main {
+    margin-left: 180px;
   }
 }

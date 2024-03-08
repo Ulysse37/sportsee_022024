@@ -17,16 +17,14 @@ function App() {
   
   return (
     <main>
-      <section className='central-container'>
-        <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
-        <KeyInfoCard item={USER_MAIN_DATA[0]} />
-        <BarChartComponent data={USER_ACTIVITY[0]} />
-        <div className='bottom-graph-container'>
-          <LineChartComponent />
-          <RadarChartComponent />
-          <PieChartComponent data={USER_MAIN_DATA[0]} />
-        </div>
-      </section>
+      <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
+      <KeyInfoCard item={USER_MAIN_DATA[0]} />
+      <BarChartComponent data={USER_ACTIVITY[0]} />
+      <div className='bottom-graph-container'>
+        <LineChartComponent />
+        <RadarChartComponent />
+        <PieChartComponent data={USER_MAIN_DATA[0]} />
+      </div>
     </main>
   );
 }
