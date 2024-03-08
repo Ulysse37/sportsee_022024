@@ -1,6 +1,6 @@
 .sidebar-container {
   position: absolute;
-  width: 117px;
+  width: 80px;
   /* height: 90vh; */
   background-color: black;
 }
@@ -17,10 +17,6 @@
   height: 100%;
 }
 
-/* .sidebar a {
-  margin: 0;
-}
- */
 .sidebar li {
   background-color: white;
   border-radius: 6px;
@@ -37,7 +33,7 @@
 .sidebar-container p {
   display: flex;
   align-items: center;
-  height: 117px;
+  height: 80px;
   margin: 0;
   padding-left: 80px;
   white-space: nowrap;
@@ -46,4 +42,13 @@
   font-size: 12px;
   font-weight: 500;
   transform: rotate(270deg);
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar-container {
+    width: 117px;
+  }
+  .sidebar-container p {
+    height: 117px;
+  }
 }

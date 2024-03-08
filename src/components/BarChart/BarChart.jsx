@@ -30,7 +30,7 @@ function BarChartComponent({ data }) {
           <li className='barchart-text-calories'>Calories brûlées (kCal)</li>
         </ul>
       </div>
-      <ResponsiveContainer className="barchart-responsive-container" width={750} height={220}>
+      <ResponsiveContainer className="barchart-responsive-container" width="90%" height={220}>
         <BarChart data={data.sessions}>
           <CartesianGrid strokeDasharray="3" vertical={false} />
           <XAxis dataKey="day" tickFormatter={(value) => new Date(value).getDate()} /* formate les dates afin d'afficher les jours du mois en numéro */
