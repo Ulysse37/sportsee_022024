@@ -3,7 +3,7 @@
   align-items: center;
   width: 200px;
   height: 90px;
-  margin-bottom: 20px;
+  margin: 20px 0px;
   border-radius: 6px;
   background-color: #FBFBFB;
 }
@@ -48,6 +48,6 @@
   .info-card {
     width: 258px;
     height: 124px;
-    margin: 15px 0px;
+    margin: 21px 0px;
   }
 }

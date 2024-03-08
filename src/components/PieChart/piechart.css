@@ -1,6 +1,6 @@
 .piechart-responsive-container {
   position: relative; /* relative pour placer le texte "score" en absolute */
-  margin-left: 20px;
+  margin-left: 31px;
   border-radius: 5px;
   background-color: rgba(251, 251, 251, 1);
 }
