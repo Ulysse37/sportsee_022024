@@ -1,6 +1,19 @@
 import './barchart.css';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
+function CustomTooltip({ active, payload }) { //custom tooltip pour le styliser plus facilement 
+  if (active) { //payload contient les valeurs pour le point où le curseur est positionné
+    return (
+      <div className="barchart-tooltip-container">
+        <p>{`${payload[0].value} kg`}</p>
+        <p>{`${payload[1].value} kCal`}</p>
+      </div>
+    );
+  }
+  
+  return null;
+}
+
 function BarChartComponent({ data }) {
 
   const maxKg = Math.max(...data.sessions.map(session => session.kilogram)); // trouve valeur max de kg parmi toutes les sessions
@@ -32,7 +45,7 @@ function BarChartComponent({ data }) {
           tickLine={{ display: 'none' }} 
           tick={{ dx: 20 }}
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="kilogram" fill="black" yAxisId="right" barSize={10} radius={[4, 4, 0, 0]} />
           <Bar dataKey="calories" fill="red" yAxisId="left" barSize={10} radius={[4, 4, 0, 0]} />
         </BarChart>
