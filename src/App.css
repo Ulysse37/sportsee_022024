@@ -1,8 +1,8 @@
 main {
   display: flex;
   flex-direction: column;
-  margin-left: 117px;
-  width: 100%;
+  margin-left: 150px;
+  /* width: 100%; */
 }
 
 .bottom-graph-container {
