@@ -6,6 +6,7 @@
 .banner-container h1 {
   font-weight: 500;
   font-size: 48px;
+  line-height: 24px;
 }
 
 .banner-container span {
@@ -15,4 +16,10 @@
 .banner-container p {
   font-weight: 400;
   font-size: 18px;
+}
+
+@media screen and (min-width: 1440px) {
+  .banner-container h1 {
+    line-height: 58px;
+  }
 }

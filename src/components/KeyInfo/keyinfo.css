@@ -45,6 +45,15 @@
   background-color: rgba(253, 81, 129, 0.1);
 }
 
+@media screen and (min-width: 1200px) {
+  .info-card {
+    width: 204px;
+    height: 100px;
+    margin: 10px 0px;
+  }
+}
+
+
 @media screen and (min-width: 1440px) {
   .info-card {
     width: 258px;

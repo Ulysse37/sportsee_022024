@@ -4,14 +4,28 @@
   margin-top: 25px;
 }
 
+@media screen and (min-width: 1200px) {
+  .keyinfo-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 153px;
+    margin-top: 42px;
+    margin-right: 20px;
+    right: 0%;
+  }
+}
+
+@media screen and (min-width: 1270px) {
+  .keyinfo-container {
+    right: 5%;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .keyinfo-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 191px;
-  margin-top: 42px;
-  margin-right: 10px;
-  right: 8%;
+    top: 191px;
+    margin-right: 10px;
+    right: 8%;
   }
 }
