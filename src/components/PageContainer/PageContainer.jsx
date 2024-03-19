@@ -14,7 +14,7 @@ function PageContainer() {
     <div className='page-container'>
       <NavBar toggleData={toggleData} />
       <SideBar />
-      <App isMockData={isMockData}/>
+      <App isMockData={isMockData} />
     </div>
   );
 }

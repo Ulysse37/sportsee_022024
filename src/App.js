@@ -1,10 +1,4 @@
 import './App.css';
-// data du mock
-import { USER_MAIN_DATA } from './assets/data.js';
-import { USER_ACTIVITY } from './assets/data.js';
-import { USER_AVERAGE_SESSIONS } from './assets/data.js';
-import { USER_PERFORMANCE } from './assets/data.js';
-
 // components
 import Banner from "./components/Banner/Banner";
 import BarChartComponent from './components/BarChart/BarChart';
@@ -12,6 +6,12 @@ import KeyInfoCard from "./components/KeyInfoCard/KeyInfoCard";
 import LineChartComponent from "./components/LineChart/LineChart";
 import RadarChartComponent from './components/RadarChart/RadarChart';
 import PieChartComponent from './components/PieChart/PieChart';
+
+// data du mock
+import { USER_MAIN_DATA } from './assets/data.js';
+import { USER_ACTIVITY } from './assets/data.js';
+import { USER_AVERAGE_SESSIONS } from './assets/data.js';
+import { USER_PERFORMANCE } from './assets/data.js';
 
 // data api
 import { getUserData } from './assets/services';
@@ -31,7 +31,7 @@ console.log("performance utilisateur" ,performanceData.data); */
 
 function App({ isMockData }) {
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
-  
+
   return (
     <main>
       {isMockData ? (
