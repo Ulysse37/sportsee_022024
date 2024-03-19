@@ -15,14 +15,14 @@ import PieChartComponent from './components/PieChart/PieChart';
 
 // data api
 /* import { getUserData } from './assets/services';
-import { getUserActivity } from './assets/services';
-import { getUserAverageSessions } from './assets/services'; */
+import { getUserActivity } from './assets/services'; */
+import { getUserAverageSessions } from './assets/services';
 import { getUserPerformance } from './assets/services';
 
 const userId = 12;
 /* const userData = await getUserData(userId);
-const activityData = await getUserActivity(userId);
-const averageSessionsData = await getUserAverageSessions(userId); */
+const activityData = await getUserActivity(userId); */
+const averageSessionsData = await getUserAverageSessions(userId);
 const performanceData = await getUserPerformance(userId);
 /* console.log("données utilisateur", userData.data);
 console.log("activité utilisateur API", activityData.data);
@@ -39,13 +39,16 @@ function App({ isMockData }) {
       <KeyInfoCard item={USER_MAIN_DATA[0]} />
       <BarChartComponent data={USER_ACTIVITY[0]} />
       <div className='bottom-graph-container'>
-        <LineChartComponent data={USER_AVERAGE_SESSIONS[0]}/>
+        {isMockData ? (
+        <LineChartComponent data={USER_AVERAGE_SESSIONS[0]} />
+        ) : (
+        <LineChartComponent data={averageSessionsData.data} />
+        )}
         {isMockData ? (
         <RadarChartComponent perfData={USER_PERFORMANCE[0]} />
       ) : (
         <RadarChartComponent perfData={performanceData.data} />
       )}
-        {/* <RadarChartComponent perfData={USER_PERFORMANCE[0]}/> */}
         <PieChartComponent data={USER_MAIN_DATA[0]} />
       </div>
     </main>
