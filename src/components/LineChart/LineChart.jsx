@@ -1,7 +1,7 @@
 import './linechart.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-import { USER_AVERAGE_SESSIONS } from '../../assets/data';
+/* import { USER_AVERAGE_SESSIONS } from '../../assets/data'; */
 
 function ShortDayNameFormat(day) { // formate les jours de la semaines donnés en n° en lettre
   const days = ["L", "M", "M", "J", "V", "S", "D"];
@@ -20,8 +20,8 @@ function CustomTooltip({ active, payload }) { //custom tooltip pour le styliser 
   return null;
 }
 
-function LineChartComponent() {
-  const data = USER_AVERAGE_SESSIONS[0].sessions.map((session) => ({
+function LineChartComponent({ data }) {
+  const averageSession = data.sessions.map((session) => ({
     day: ShortDayNameFormat(session.day),
     sessionLength: session.sessionLength,
   }));
@@ -29,7 +29,7 @@ function LineChartComponent() {
   return (
     <div className="linechart-graph-container">
       <ResponsiveContainer className="linechart-responsive-container" width={258} height={233}>
-        <LineChart data={data}>
+        <LineChart data={averageSession}>
           <XAxis dataKey="day" hide={true} />
           <YAxis hide={true} />
           <Line type="monotone" dataKey="sessionLength" stroke="#ffffff" strokeWidth={2} dot={false} />
@@ -41,7 +41,7 @@ function LineChartComponent() {
         </LineChart>
       </ResponsiveContainer>
       <div className="day-labels"> {/* ajout des jours de la semaine sur l'axe x */}
-        {data.map((entry, index) => (
+        {averageSession.map((entry, index) => (
           <span key={`day-label-${index}`} className="day-label">
             {entry.day}
           </span>
