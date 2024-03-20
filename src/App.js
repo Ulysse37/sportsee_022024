@@ -1,5 +1,5 @@
-import './App.css';
 import { useState, useEffect } from 'react';
+import './App.css';
 // components
 import Banner from "./components/Banner/Banner";
 import BarChartComponent from './components/BarChart/BarChart';
@@ -30,21 +30,23 @@ console.log("activité utilisateur API", activityData.data);
 console.log("durée session utilisateur", averageSessionsData.data);
 console.log("performance utilisateur" ,performanceData.data); */
 
-function App({ isMockData, getCurrentUserId  }) {
+function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
-  const userId = getCurrentUserId();
-  const [userData, setUserData] = useState(null);
+  const userMockId = getCurrentMockUser(); // Renvoie l'utilisateur actuel à partir du mock
+  
+  const userId = getCurrentApiUserId(); // Renvoie l'ID actuelle de l'utilisateur à partir de l'API
+  const [userData, setUserData] = useState(null); // initialise état local et une fonction pour le mettre à jour
   const [activityData, setActivityData] = useState(null);
   const [averageSessionsData, setAverageSessionsData] = useState(null);
   const [performanceData, setPerformanceData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
+  useEffect(() => { // Effectue toutes ces fonctions à chaque fois que l'userId change
+    const fetchData = async () => {  // Récupère les données de l'API de l'utilisateur 
       const userData = await getUserData(userId);
       const activityData = await getUserActivity(userId);
       const averageSessionsData = await getUserAverageSessions(userId);
       const performanceData = await getUserPerformance(userId);
-      setUserData(userData);
+      setUserData(userData); // Met à jour l'état de chaque donnée en fonction de l'utilisateur 
       setActivityData(activityData);
       setAverageSessionsData(averageSessionsData);
       setPerformanceData(performanceData);
@@ -53,36 +55,38 @@ function App({ isMockData, getCurrentUserId  }) {
     fetchData();
   }, [userId]);
   
+  console.log("Utilisateur données mockées : ", userMockId);
+  console.log("Utilisateur données API : ", userId);
   return (
     <main>
       {isMockData ? (
-      <Banner name={USER_MAIN_DATA[0].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
+      <Banner name={USER_MAIN_DATA[userMockId].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
       ) : (
       <Banner name={userData.data.userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
       )}
       {isMockData ? (
-      <KeyInfoCard item={USER_MAIN_DATA[0]} />
+      <KeyInfoCard item={USER_MAIN_DATA[userMockId]} />
       ) : (
       <KeyInfoCard item={userData.data} />
       )}
       {isMockData ? (
-      <BarChartComponent data={USER_ACTIVITY[0]} />
+      <BarChartComponent data={USER_ACTIVITY[userMockId]} />
       ) : (
       <BarChartComponent data={activityData.data} />
       )}
       <div className='bottom-graph-container'>
         {isMockData ? (
-        <LineChartComponent data={USER_AVERAGE_SESSIONS[0]} />
+        <LineChartComponent data={USER_AVERAGE_SESSIONS[userMockId]} />
         ) : (
         <LineChartComponent data={averageSessionsData.data} />
         )}
         {isMockData ? (
-        <RadarChartComponent perfData={USER_PERFORMANCE[0]} />
+        <RadarChartComponent perfData={USER_PERFORMANCE[userMockId]} />
       ) : (
         <RadarChartComponent perfData={performanceData.data} />
       )}
         {isMockData ? (
-        <PieChartComponent data={USER_MAIN_DATA[0]} />
+        <PieChartComponent data={USER_MAIN_DATA[userMockId]} />
         ) : (
         <PieChartComponent data={userData.data} />
         )}
