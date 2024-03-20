@@ -1,4 +1,5 @@
 import './App.css';
+import { useState, useEffect } from 'react';
 // components
 import Banner from "./components/Banner/Banner";
 import BarChartComponent from './components/BarChart/BarChart';
@@ -19,19 +20,39 @@ import { getUserActivity } from './assets/services';
 import { getUserAverageSessions } from './assets/services';
 import { getUserPerformance } from './assets/services';
 
-const userId = 12;
+/* const userId = 12;
 const userData = await getUserData(userId);
 const activityData = await getUserActivity(userId);
 const averageSessionsData = await getUserAverageSessions(userId);
-const performanceData = await getUserPerformance(userId);
+const performanceData = await getUserPerformance(userId); */
 /* console.log("données utilisateur", userData.data);
 console.log("activité utilisateur API", activityData.data);
 console.log("durée session utilisateur", averageSessionsData.data);
 console.log("performance utilisateur" ,performanceData.data); */
 
-function App({ isMockData }) {
+function App({ isMockData, getCurrentUserId  }) {
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
+  const userId = getCurrentUserId();
+  const [userData, setUserData] = useState(null);
+  const [activityData, setActivityData] = useState(null);
+  const [averageSessionsData, setAverageSessionsData] = useState(null);
+  const [performanceData, setPerformanceData] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await getUserData(userId);
+      const activityData = await getUserActivity(userId);
+      const averageSessionsData = await getUserAverageSessions(userId);
+      const performanceData = await getUserPerformance(userId);
+      setUserData(userData);
+      setActivityData(activityData);
+      setAverageSessionsData(averageSessionsData);
+      setPerformanceData(performanceData);
+    };
+
+    fetchData();
+  }, [userId]);
+  
   return (
     <main>
       {isMockData ? (
