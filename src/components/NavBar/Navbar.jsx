@@ -1,11 +1,29 @@
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import logo from "../../assets/sportsee-logo.svg";
+import { checkApiAvailabilityFetch } from '../../assets/services';
 
 function NavBar({ getMockStatut, toggleData, changeApiUser, getCurrentApiUserId, toggleMockUser, getCurrentMockUser }) {
 
+  const userId = getCurrentApiUserId();
+  const [apiAvailable, setApiAvailable] = useState(null);
+  useEffect(() => {
+    const checkApiAvailability = async () => {
+      const available = await checkApiAvailabilityFetch(userId);
+      setApiAvailable(available);
+    };
+    
+    checkApiAvailability();
+  }, [userId]);
+
   const handleSettingClick = (event) => { 
     event.preventDefault(); // empêche le rechargement de la page au clic sur le lien
-    toggleData(); // Appelle la fonction de basculement des données du composant App
+    console.log("API Statut : ", apiAvailable);
+    if (apiAvailable === true) {
+      toggleData(); // Appelle la fonction de basculement des données du composant App
+    } else if (apiAvailable === false) {
+      alert("API non disponible");
+    }
   };
   const handleProfileClick = (event) => {
     event.preventDefault(); // empêche le rechargement de la page au clic
