@@ -16,6 +16,7 @@ import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformanc
 
 function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
+  console.log("isMockData statut", isMockData);
   const userMockId = getCurrentMockUser(); // Renvoie l'utilisateur actuel à partir du mock
   
   const userId = getCurrentApiUserId(); // Renvoie l'ID actuelle de l'utilisateur à partir de l'API
@@ -51,7 +52,7 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
 
     fetchData();
   }
-    else {
+    else if (!isMockData && !isApiAvailable) {
       alert("Api non disponible");
     }
   }, [userId, isMockData, isApiAvailable]);
