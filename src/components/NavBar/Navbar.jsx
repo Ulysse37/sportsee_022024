@@ -3,8 +3,7 @@ import logo from "../../assets/sportsee-logo.svg";
 
 function NavBar({ getMockStatut, toggleData, changeApiUser, getCurrentApiUserId, toggleMockUser, getCurrentMockUser }) {
 
-  const handleSettingClick = (event) => {
-    console.log("handleSettingClick"); 
+  const handleSettingClick = (event) => { 
     event.preventDefault(); // empêche le rechargement de la page au clic sur le lien
     toggleData(); // Appelle la fonction de basculement des données du composant App
   };

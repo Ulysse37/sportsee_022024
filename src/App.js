@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import './App.css';
 // components
 import Banner from "./components/Banner/Banner";
@@ -14,21 +14,7 @@ import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE 
 // data api
 import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance, checkApiAvailabilityFetch } from './assets/services';
 
-/* const userId = 12;
-const userData = await getUserData(userId);
-const activityData = await getUserActivity(userId);
-const averageSessionsData = await getUserAverageSessions(userId);
-const performanceData = await getUserPerformance(userId); */
-/* console.log("données utilisateur", userData.data);
-console.log("activité utilisateur API", activityData.data);
-console.log("durée session utilisateur", averageSessionsData.data);
-console.log("performance utilisateur" ,performanceData.data); */
-
 function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
-  
-  
-
-  console.log("App lancé");
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
   const userMockId = getCurrentMockUser(); // Renvoie l'utilisateur actuel à partir du mock
   
@@ -37,31 +23,41 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   const [activityData, setActivityData] = useState(null);
   const [averageSessionsData, setAverageSessionsData] = useState(null);
   const [performanceData, setPerformanceData] = useState(null);
+  const [isApiAvailable, setIsApiAvailable] = useState(false);
 
-  const handleCheckApiAvailability = async () => { // Appel la fonction pour vérifier si l'API est accessible ou non
-    const isApiAvailable = await checkApiAvailabilityFetch(userId);
-    console.log('API statut :', isApiAvailable);
-  };
+  const handleCheckApiAvailability = useCallback(async () => {
+    const apiAvailable = await checkApiAvailabilityFetch(userId);
+    setIsApiAvailable(apiAvailable);
+    console.log('Statut de l\'API :', apiAvailable);
+  }, [userId]);
   handleCheckApiAvailability();
 
+  useEffect(() => { // Effectue la fonction à chaque fois que l'userId change
+    handleCheckApiAvailability();
+  }, [userId, handleCheckApiAvailability]);
+
   useEffect(() => { // Effectue toutes ces fonctions à chaque fois que l'userId change
-    const fetchData = async () => {  // Récupère les données de l'API de l'utilisateur 
-      const userData = await getUserData(userId);
-      const activityData = await getUserActivity(userId);
-      const averageSessionsData = await getUserAverageSessions(userId);
-      const performanceData = await getUserPerformance(userId);
-      setUserData(userData); // Met à jour l'état de chaque donnée en fonction de l'utilisateur 
-      setActivityData(activityData);
-      setAverageSessionsData(averageSessionsData);
-      setPerformanceData(performanceData);
-    };
+    if (!isMockData && isApiAvailable) {
+      const fetchData = async () => {  // Récupère les données de l'API de l'utilisateur 
+        const userData = await getUserData(userId);
+        const activityData = await getUserActivity(userId);
+        const averageSessionsData = await getUserAverageSessions(userId);
+        const performanceData = await getUserPerformance(userId);
+        setUserData(userData); // Met à jour l'état de chaque donnée en fonction de l'utilisateur 
+        setActivityData(activityData);
+        setAverageSessionsData(averageSessionsData);
+        setPerformanceData(performanceData);
+      };
 
     fetchData();
-  }, [userId]);
+  }
+    else {
+      alert("Api non disponible");
+    }
+  }, [userId, isMockData, isApiAvailable]);
   
-  
-  console.log("Utilisateur données mockées : ", userMockId);
-  console.log("Utilisateur données API : ", userId);
+  /* console.log("Utilisateur données mockées : ", userMockId);
+  console.log("Utilisateur données API : ", userId); */
   return (
     <main>
       {isMockData ? (
