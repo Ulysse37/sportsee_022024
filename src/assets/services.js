@@ -4,13 +4,13 @@ const API_URL = 'http://localhost:3001'; // URL de l'api
 export const getUserData = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/user/${userId}`);
-    if (!response.ok) {
+    /* if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données');
-    }
+    } */
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Erreur lors de la récupération des données :', error);
+    console.log('Erreur lors de la récupération des données :', error);
     return null;
   }
 };
@@ -19,13 +19,13 @@ export const getUserData = async (userId) => {
 export const getUserActivity = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/user/${userId}/activity`);
-    if (!response.ok) {
+    /* if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données');
-    }
+    } */
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Erreur lors de la récupération des données :', error);
+    console.log('Erreur lors de la récupération des données :', error);
     return null;
   }
 };
@@ -34,13 +34,13 @@ export const getUserActivity = async (userId) => {
 export const getUserAverageSessions = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/user/${userId}/average-sessions`);
-    if (!response.ok) {
+    /* if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données');
-    }
+    } */
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Erreur lors de la récupération des données :', error);
+    console.log('Erreur lors de la récupération des données :', error);
     return null;
   }
 };
@@ -49,13 +49,13 @@ export const getUserAverageSessions = async (userId) => {
 export const getUserPerformance = async (userId) => {
   try {
     const response = await fetch(`${API_URL}/user/${userId}/performance`);
-    if (!response.ok) {
+    /* if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données');
-    }
+    } */
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Erreur lors de la récupération des données :', error);
+    console.log('Erreur lors de la récupération des données :', error);
     return null;
   }
 };

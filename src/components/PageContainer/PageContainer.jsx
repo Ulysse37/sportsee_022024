@@ -4,8 +4,10 @@ import SideBar from '../SideBar/SideBar';
 import App from '../../App';
 
 function PageContainer() {
+  console.log("PageContainer component lancé");
   const [isMockData, setIsMockData] = useState(true);
   const toggleData = () => { // Fonction pour basculer entre les données mockées et celles de l'API
+    console.log("ToggleData pagecontainer lancé"); 
     setIsMockData(prevState => !prevState); // Inverse la valeur actuelle de isMockData
   };
   const getMockStatut = () => { // Renvoie la valeur de isMockData -> savoir si on est dans le cas des données mockées ou de l'API

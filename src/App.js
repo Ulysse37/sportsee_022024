@@ -9,16 +9,10 @@ import RadarChartComponent from './components/RadarChart/RadarChart';
 import PieChartComponent from './components/PieChart/PieChart';
 
 // data du mock
-import { USER_MAIN_DATA } from './assets/data.js';
-import { USER_ACTIVITY } from './assets/data.js';
-import { USER_AVERAGE_SESSIONS } from './assets/data.js';
-import { USER_PERFORMANCE } from './assets/data.js';
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './assets/data.js';
 
 // data api
-import { getUserData } from './assets/services';
-import { getUserActivity } from './assets/services';
-import { getUserAverageSessions } from './assets/services';
-import { getUserPerformance } from './assets/services';
+import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance } from './assets/services';
 
 /* const userId = 12;
 const userData = await getUserData(userId);
@@ -31,6 +25,7 @@ console.log("durée session utilisateur", averageSessionsData.data);
 console.log("performance utilisateur" ,performanceData.data); */
 
 function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
+  console.log("App lancé");
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
   const userMockId = getCurrentMockUser(); // Renvoie l'utilisateur actuel à partir du mock
   
@@ -54,6 +49,7 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
 
     fetchData();
   }, [userId]);
+  
   
   console.log("Utilisateur données mockées : ", userMockId);
   console.log("Utilisateur données API : ", userId);
