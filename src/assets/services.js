@@ -1,9 +1,9 @@
 const API_URL = 'http://localhost:3001'; // URL de l'api
 
 // Vérifie sir l'API est disponible 
-export const checkApiAvailability = async () => {
+export const checkApiAvailabilityFetch = async (userId) => {
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch(`${API_URL}/user/${userId}`);
     if (!response.ok) {
       return false; // L'API n'est pas disponible
     }

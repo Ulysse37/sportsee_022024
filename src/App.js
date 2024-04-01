@@ -12,7 +12,7 @@ import PieChartComponent from './components/PieChart/PieChart';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './assets/data.js';
 
 // data api
-import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance, checkApiAvailability } from './assets/services';
+import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance, checkApiAvailabilityFetch } from './assets/services';
 
 /* const userId = 12;
 const userData = await getUserData(userId);
@@ -25,9 +25,9 @@ console.log("durée session utilisateur", averageSessionsData.data);
 console.log("performance utilisateur" ,performanceData.data); */
 
 function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
-  /* checkApiAvailability().then(result => {
-    console.log('L\'API est disponible:', result);
-  }) */
+  
+  
+
   console.log("App lancé");
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
   const userMockId = getCurrentMockUser(); // Renvoie l'utilisateur actuel à partir du mock
@@ -37,6 +37,12 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   const [activityData, setActivityData] = useState(null);
   const [averageSessionsData, setAverageSessionsData] = useState(null);
   const [performanceData, setPerformanceData] = useState(null);
+
+  const handleCheckApiAvailability = async () => { // Appel la fonction pour vérifier si l'API est accessible ou non
+    const isApiAvailable = await checkApiAvailabilityFetch(userId);
+    console.log('API statut :', isApiAvailable);
+  };
+  handleCheckApiAvailability();
 
   useEffect(() => { // Effectue toutes ces fonctions à chaque fois que l'userId change
     const fetchData = async () => {  // Récupère les données de l'API de l'utilisateur 
@@ -58,7 +64,7 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   console.log("Utilisateur données API : ", userId);
   return (
     <main>
-      {/* {isMockData ? (
+      {isMockData ? (
       <Banner name={USER_MAIN_DATA[userMockId].userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
       ) : (
       <Banner name={userData.data.userInfos.firstName} text="Félicitations ! Vous avez explosé vos objectifs hier 👏" />
@@ -89,7 +95,7 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
         ) : (
         <PieChartComponent data={userData.data} />
         )}
-      </div> */}
+      </div>
     </main>
   );
 }
