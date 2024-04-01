@@ -7,7 +7,8 @@ function NavBar({ getMockStatut, toggleData, changeApiUser, getCurrentApiUserId,
 
   const userId = getCurrentApiUserId();
   const [apiAvailable, setApiAvailable] = useState(null);
-  useEffect(() => {
+
+  useEffect(() => { // Va regarder à chaque changement d'userId si l'API est disponible ou non
     const checkApiAvailability = async () => {
       const available = await checkApiAvailabilityFetch(userId);
       setApiAvailable(available);
@@ -19,10 +20,10 @@ function NavBar({ getMockStatut, toggleData, changeApiUser, getCurrentApiUserId,
   const handleSettingClick = (event) => { 
     event.preventDefault(); // empêche le rechargement de la page au clic sur le lien
     console.log("API Statut : ", apiAvailable);
-    if (apiAvailable === true) {
+    if (apiAvailable === true) { // Si l'API est disponible
       toggleData(); // Appelle la fonction de basculement des données du composant App
-    } else if (apiAvailable === false) {
-      alert("API non disponible");
+    } else if (apiAvailable === false) { // Si l'API n'est pas disponible 
+      alert("API non disponible"); // Lance un message d'alerte
     }
   };
   const handleProfileClick = (event) => {
