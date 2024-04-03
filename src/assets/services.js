@@ -9,7 +9,7 @@ export const checkApiAvailabilityFetch = async (userId) => {
     }
     return true; // L'API est disponible
   } catch (error) {
-    console.log('Erreur lors de la vérification de l\'API :', error);
+    console.log('Fetch impossible : API non disponible');
     return false; // L'API n'est pas disponible en raison d'une erreur
   }
 };
@@ -24,7 +24,7 @@ export const getUserData = async (userId) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log('Erreur lors de la récupération des données :', error);
+    console.log('Fetch impossible : API non disponible');
     return null;
   }
 };
@@ -39,7 +39,7 @@ export const getUserActivity = async (userId) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log('Erreur lors de la récupération des données :', error);
+    console.log('Fetch impossible : API non disponible');
     return null;
   }
 };
@@ -54,7 +54,7 @@ export const getUserAverageSessions = async (userId) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log('Erreur lors de la récupération des données :', error);
+    console.log('Fetch impossible : API non disponible');
     return null;
   }
 };
@@ -69,7 +69,7 @@ export const getUserPerformance = async (userId) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log('Erreur lors de la récupération des données :', error);
+    console.log('Fetch impossible : API non disponible');
     return null;
   }
 };
