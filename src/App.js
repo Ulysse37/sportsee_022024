@@ -12,7 +12,7 @@ import PieChartComponent from './components/PieChart/PieChart';
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from './assets/data.js';
 
 // data api
-import { getUserData, getUserActivity, getUserAverageSessions, getUserPerformance } from './assets/services';
+import { isServerAvailable, getUserData, getUserActivity, getUserAverageSessions, getUserPerformance } from './assets/services';
 
 function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
   console.log(`Données affichées : ${isMockData ? 'Données mockées' : 'Données de l\'API'}`);
@@ -27,14 +27,22 @@ function App({ isMockData, getCurrentApiUserId, getCurrentMockUser }) {
 
   useEffect(() => { // Effectue toutes ces fonctions à chaque fois que l'userId change
     const fetchData = async () => {  // Récupère les données de l'API de l'utilisateur 
-      const userData = await getUserData(userId);
-      const activityData = await getUserActivity(userId);
-      const averageSessionsData = await getUserAverageSessions(userId);
-      const performanceData = await getUserPerformance(userId);
-      setUserData(userData); // Met à jour l'état de chaque donnée en fonction de l'utilisateur 
-      setActivityData(activityData);
-      setAverageSessionsData(averageSessionsData);
-      setPerformanceData(performanceData);
+      const serverAvailable = await isServerAvailable();
+  
+      if (serverAvailable) {
+        const userData = await getUserData(userId);
+        const activityData = await getUserActivity(userId);
+        const averageSessionsData = await getUserAverageSessions(userId);
+        const performanceData = await getUserPerformance(userId);
+        setUserData(userData); // Met à jour l'état de chaque donnée en fonction de l'utilisateur 
+        setActivityData(activityData);
+        setAverageSessionsData(averageSessionsData);
+        setPerformanceData(performanceData);
+      }
+      else {
+        console.log("Le serveur n'est pas disponible");
+        return null;
+      }
     };
 
     fetchData();

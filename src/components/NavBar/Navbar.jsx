@@ -26,6 +26,7 @@ function NavBar({ getMockStatut, toggleData, changeApiUser, getCurrentApiUserId,
       alert("API non disponible"); // Lance un message d'alerte
     }
   };
+  
   const handleProfileClick = (event) => {
     event.preventDefault(); // empêche le rechargement de la page au clic
   
