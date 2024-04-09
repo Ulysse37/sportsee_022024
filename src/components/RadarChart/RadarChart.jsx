@@ -1,8 +1,6 @@
 import './radarchart.css';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
-/* import { USER_PERFORMANCE } from '../../assets/data'; */
-
 const TypePerformance = { //contient les valeurs numériques à leurs mots correspondant
   1: 'Cardio',
   2: 'Energie',

@@ -1,8 +1,6 @@
 import './linechart.css';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
-/* import { USER_AVERAGE_SESSIONS } from '../../assets/data'; */
-
 function ShortDayNameFormat(day) { // formate les jours de la semaines donnés en n° en lettre
   const days = ["L", "M", "M", "J", "V", "S", "D"];
   return days[day - 1];

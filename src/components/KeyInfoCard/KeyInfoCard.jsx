@@ -6,6 +6,7 @@ import glucidIcon from "../../assets/carbohydrate-apple-icon.svg";
 import lipidIcon from "../../assets/lipid-burger-icon.svg";
 
 import KeyInfo from "../KeyInfo/KeyInfo";
+
 function KeyInfoCard({ item }) {
   const info = [
     {

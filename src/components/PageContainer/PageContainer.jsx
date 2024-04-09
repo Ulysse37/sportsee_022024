@@ -23,7 +23,7 @@ function PageContainer() {
 
 //! gère le changement de profile entre les 2 utilisateurs dans les données de l'API
   const [userId, setUserId] = useState(12); // Id de l'utilisateur par défaut = 12 pour l'api
-  const changeApiUser = (newUserId) => { // Met ç jour la valeur de setUserId selon la valeur de newUserId
+  const changeApiUser = (newUserId) => { // Met à jour la valeur de setUserId selon la valeur de newUserId
     setUserId(newUserId);
   };
   const getCurrentApiUserId = () => { // Renvoie l'userId actuel
