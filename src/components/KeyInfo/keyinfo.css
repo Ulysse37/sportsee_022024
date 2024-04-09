@@ -1,0 +1,62 @@
+.info-card {
+  display: flex;
+  align-items: center;
+  width: 194px;
+  height: 90px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-radius: 6px;
+  background-color: #FBFBFB;
+}
+
+.info-card img {
+  width: 20px;
+  height: 20px;
+  margin: 10px 20px;
+  padding: 20px 20px;
+}
+
+.info-quantité {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 10px;
+}
+
+.info-unité {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 10px;
+  color: rgba(116, 121, 140, 1)
+}
+
+.calorie-img {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.protein-img {
+  background-color: rgba(74, 184, 255, 0.1);
+}
+
+.glucid-img {
+  background-color: rgba(249, 206, 35, 0.1);
+}
+
+.lipid-img {
+  background-color: rgba(253, 81, 129, 0.1);
+}
+
+@media screen and (min-width: 1200px) {
+  .info-card {
+    width: 204px;
+    height: 100px;
+    margin: 10px 0px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .info-card {
+    width: 258px;
+    height: 124px;
+    margin: 21px 0px;
+  }
+}

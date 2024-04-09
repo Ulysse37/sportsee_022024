@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  background-color: black;
+  padding: 7px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 60px;
+}
+
+.navbar li {
+  font-weight: 500;
+}
+
+.navbar-logo {
+  margin-right: 40px;
+}
+
+.navbar a {
+  color: white;
+}
+
+@media screen and (min-width: 1440px) {
+  .navbar {
+    padding: 15px;
+  }
+}
