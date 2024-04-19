@@ -1,20 +1,9 @@
 import './piechart.css';
-
 import { PieChart, Pie, Cell, ResponsiveContainer, Label } from 'recharts';
+import { formatDataPieChart } from '../../assets/dataFormating.js';
 
 function PieChartComponent({ data }) {
-
-  let scorePercentage; // Calcul du pourcentage du score
-  if (data.todayScore !== undefined) {
-    scorePercentage = data.todayScore * 100; // si utilisation de todayScore
-  } else if (data.score !== undefined) {
-    scorePercentage = data.score * 100; // si utilisation de score
-  } else {
-    scorePercentage = 0; // Valeur par défaut si aucune clé de données n'est présente
-  } 
-
-  const graphData = [{ name: 'Score', value: scorePercentage }, { name: 'Reste', value: 100 - scorePercentage }];
-  const colors = ['rgba(255, 0, 0, 1)', 'rgba(251, 251, 251, 1)'];
+  const { graphData, colors, scorePercentage } = formatDataPieChart(data); // formatage du score en %
 
   return (
     <ResponsiveContainer className="piechart-responsive-container" width={258} height={274}>
